@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+*{
+  margin: 0px;
+  padding: 0px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#Base{
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 7, 19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul{
+  list-style: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#maincon{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: rgb(8, 13, 51);
+  width: 50%;
+  height: fit-content;
+  box-shadow: 0px 0px 1em rgba(83, 73, 224, 0.459);
+  padding: 1em;
 }
-
-.App-link {
-  color: #61dafb;
+#tasknav{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#taskvalue{
+  width: 50%;
+  padding: 2px;
+}
+#taskvalue:focus{
+  outline: none;
+}
+#addtask{
+  width: 4em;
+  border: none;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+#addtask:hover{
+  box-shadow: 5px 5px 10px black;
 }
