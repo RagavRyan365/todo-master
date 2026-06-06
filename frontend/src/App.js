@@ -15,7 +15,7 @@ function App() {
     .catch(err=>console.log(err))
   }
   async function addTask(){
-    const title = document.getElementById("Value").value
+    let title = document.getElementById("Value").value
     const res = await fetch("http://localhost:3300/addTask",{
       method:"POST",
       headers:{
@@ -31,6 +31,7 @@ function App() {
     console.log(data)
     
     getTask()
+    title = ""
   }
   useEffect(()=>{
     getTask()
@@ -45,7 +46,7 @@ function App() {
         
         {
         msg.map((m)=>(
-           m?<Task Title={m.Title} key={m.id} Completed={m.Completed}/>:null
+           m?<Task Title={m.Title} key={m.id} Completed={m.Completed} loadTask={getTask} id={m.id}/>:null
           ))
         }
       </div>
