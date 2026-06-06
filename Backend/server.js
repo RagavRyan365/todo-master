@@ -44,9 +44,7 @@ app.delete("/removeTask/:id",(req,res)=>{
     try{
         const id = req.params.id
         Tasks = Tasks.filter(task => task.id != id)
-        Tasks.map((task,index)=>({
-            ...task,id:index
-        }))
+        Tasks.map((task,index)=>task.id = index)
         fs.writeFileSync("./Task.json",JSON.stringify(Tasks,null,2),"utf-8")
         res.json({msg:"TAsk removed"})
 

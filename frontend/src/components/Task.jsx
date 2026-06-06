@@ -1,4 +1,7 @@
 import { useState,useEffect } from "react";
+import{ReactComponent as Delete} from "../Static/trash.svg"
+
+import './Task.css'
 
 function Task({Title,Completed,loadTask,id}){
     //const [completed,setcompleted] = useState(Completed)
@@ -31,7 +34,7 @@ function Task({Title,Completed,loadTask,id}){
         <div id="taskcon">
             <input type="checkbox" id="Checkbox" defaultChecked={Completed} onChange={setTask}/>
             <p style={{textDecoration:Completed?"line-through":"none"}}>{Title}</p>
-            <button onClick={removeTask}>Remove</button>
+            <button onClick={removeTask}><Delete/></button>
         </div>
 
     )
