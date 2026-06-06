@@ -3,20 +3,26 @@ import Task from './components/Task'
 import { useState,useEffect} from 'react';
 
 function App() {
-  const [tasks,settask] = useState([])
-  const [length,setl] = useState(0)
+  const [tasks,settask] = useState([])//task variable
+  const [length,setl] = useState(0)//length variable used for adding a new task
   
+  //To get the tasks from the Task.json file via backend
   async function getTask()
   {
     fetch("http://localhost:3300/").then(res => res.json())
-    .then(data =>{settask(data)
+    .then(data =>{
+      //assigning the data from the Task.json file to the variable tasks via the response from backend
+      settask(data)
+      //Assigning the length of the json file to the length variable
       setl(data.length)
     })
     .catch(err=>console.log(err))
   }
+
+  //To add a new task
   async function addTask(){
     let title = document.getElementById("Value").value
-    if(title != "")
+    if(title != "")//Checking the title or the task input field does not contain null value
     {
       const res = await fetch("http://localhost:3300/addTask",{
         method:"POST",
@@ -32,12 +38,13 @@ function App() {
       const data = await res.json()
       console.log(data)
       
-      getTask()
+      getTask()//Calling again this function to refresh the page and render the new task added
     }
   }
   useEffect(()=>{
     getTask()
   },[])
+  
   return (
     <div id='base'>
       <h1>Todo-Master</h1>

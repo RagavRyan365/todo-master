@@ -4,7 +4,6 @@ import{ReactComponent as Delete} from "../Static/trash.svg"
 import './Task.css'
 
 function Task({Title,Completed,loadTask,id}){
-    //const [completed,setcompleted] = useState(Completed)
     async function setTask(){
         const res = await fetch(`http://localhost:3300/setTask/${id}`,{
             method:"PUT",
