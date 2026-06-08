@@ -22,7 +22,7 @@ function App() {
   //To add a new task
   async function addTask(){
     let title = document.getElementById("Value").value
-    if(title != "")//Checking the title or the task input field does not contain null value
+    if(title !== "")//Checking the title or the task input field does not contain null value
     {
       const res = await fetch("http://localhost:3300/addTask",{
         method:"POST",
@@ -35,8 +35,6 @@ function App() {
           Completed:false
         })
       })
-      const data = await res.json()
-      console.log(data)
       
       getTask()//Calling again this function to refresh the page and render the new task added
     }
