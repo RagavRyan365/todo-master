@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 0,
+    "Title": "Looking for a refreshing way to discover news and content? Copilot Discover is a redesigned New Tab Page that uses the power of Copilot to inform, entertain and inspire you. Prefer the previous experience? You can easily switch back to New Tab Page Classic at any time.",
+    "Completed": true
+  },
+  {
+    "id": 1,
+    "Title": "g",
+    "Completed": false
+  }
+]

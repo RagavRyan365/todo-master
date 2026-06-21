@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import{ReactComponent as Delete} from "../Static/trash.svg"
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 import './Task.css'
 
 function Task({Title,Completed,loadTask,id}){
     async function setTask(){
-        const res = await fetch(`http://localhost:3300/setTask/${id}`,{
+        const res = await fetch(`${BACKEND_URL}/setTask/${id}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"
@@ -16,8 +18,8 @@ function Task({Title,Completed,loadTask,id}){
     }
     async function removeTask()
     {
-        const res = await fetch(`http://localhost:3300/removeTask/${id}`,{
-            method:"DELETE"
+        const res = await fetch(`${BACKEND_URL}/removeTask/${id}`,{
+            method:"PUT"
         })
         loadTask()
     }

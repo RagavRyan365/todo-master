@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.urlencoded({extended:true}))
 
 //envS
-const port = process.env.PORT
+const port = process.env.PORT || 3300
 
 app.get("/",(req,res)=>{
     res.json(Tasks)
@@ -34,13 +34,13 @@ app.put("/setTask/:id",(req,res)=>{
         res.status(404).json({msg:"Task not found"})
     }
     else{
-        task.Completed = !req.body.comp
+        task.Completed = !task.Completed
         fs.writeFileSync("./Task.json",JSON.stringify(Tasks,null,2),"utf-8")
         res.status(202).json({msg:`Task updated`})
     }
     
 })
-app.delete("/removeTask/:id",(req,res)=>{
+app.put("/removeTask/:id",(req,res)=>{
     try{
         const id = req.params.id
         Tasks = Tasks.filter(task => task.id != id)

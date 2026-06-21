@@ -2,6 +2,8 @@ import './App.css';
 import Task from './components/Task'
 import { useState,useEffect} from 'react';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 function App() {
   const [tasks,settask] = useState([])//task variable
   const [length,setl] = useState(0)//length variable used for adding a new task
@@ -9,7 +11,7 @@ function App() {
   //To get the tasks from the Task.json file via backend
   async function getTask()
   {
-    fetch("http://localhost:3300/").then(res => res.json())
+    fetch(`${BACKEND_URL}/`).then(res => res.json())
     .then(data =>{
       //assigning the data from the Task.json file to the variable tasks via the response from backend
       settask(data)
@@ -21,10 +23,10 @@ function App() {
 
   //To add a new task
   async function addTask(){
-    let title = document.getElementById("Value").value
+    const title = document.getElementById("Value").value
     if(title !== "")//Checking the title or the task input field does not contain null value
     {
-      const res = await fetch("http://localhost:3300/addTask",{
+      const res = await fetch(`${BACKEND_URL}/addTask`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
