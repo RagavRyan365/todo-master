@@ -1,9 +1,9 @@
+import './Task.css'
 import { useEffect } from "react";
 import{ReactComponent as Delete} from "../Static/trash.svg"
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-import './Task.css'
 
 function Task({Title,Completed,loadTask,id}){
     async function setTask(){
